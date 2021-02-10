@@ -1,0 +1,7 @@
+<resources>
+
+    //universal
+    <string name="error_text_general">Unknown error occurred, please try again.</string>
+    <string name="text_internet_off">There is no internet connection</string>
+
+</resources>
