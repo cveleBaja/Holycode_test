@@ -1,7 +1,7 @@
 package com.cmilan.holycode_test.utils
 
 import com.cmilan.holycode_test.data.network.BaseHttpError
-import com.cmilan.holycode_test.ui.base.BaseActivity
+import com.cmilan.holycode_test.ui.screen.base.BaseActivity
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.HttpException

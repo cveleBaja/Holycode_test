@@ -13,11 +13,9 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class DatabaseModule {
+object DatabaseModule {
 
-    companion object {
-        private const val DATABASE_NAME = "holycode_test_" + BuildConfig.FLAVOR + "_.db"
-    }
+    private const val DATABASE_NAME = "holycode_test_" + BuildConfig.FLAVOR + "_.db"
 
     @Singleton
     @Provides
@@ -28,5 +26,8 @@ class DatabaseModule {
             .fallbackToDestructiveMigration()
             .build()
     }
+
+    @Provides
+    fun providesUserDao(db: HolycodeTestDatabase) = db.getUserDao()
 
 }

@@ -10,12 +10,12 @@ import retrofit2.http.Path
 
 interface GeneralApiEndpoint {
 
-    @POST("users/octocat")
+    @GET("users/octocat")
     suspend fun fetchUser(): Response<User?>
 
     @GET("users/octocat/repos")
-    suspend fun fetchUserRepos(): Response<List<UserRepo>?>
+    suspend fun fetchUserRepos(): Response<List<UserRepo?>>
 
     @GET("repos/octocat/{repo_name}boysenberry-repo-1/commits")
-    suspend fun fetchCommitsByRepo(@Path("repo_name") repo_name: String): Response<List<Commit>?>
+    suspend fun fetchCommitsByRepo(@Path("repo_name") repo_name: String): Response<List<Commit?>>
 }

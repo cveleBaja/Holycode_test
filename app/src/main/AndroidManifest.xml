@@ -13,13 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Holycode_test">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.screen.user_details.UserDetailsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.screen.user_repos.UserReposActivity"/>
     </application>
 
 </manifest>

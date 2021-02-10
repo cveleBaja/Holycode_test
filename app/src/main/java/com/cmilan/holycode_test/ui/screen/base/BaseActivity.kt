@@ -1,4 +1,4 @@
-package com.cmilan.holycode_test.ui.base
+package com.cmilan.holycode_test.ui.screen.base
 
 import android.view.View
 import android.widget.TextView
