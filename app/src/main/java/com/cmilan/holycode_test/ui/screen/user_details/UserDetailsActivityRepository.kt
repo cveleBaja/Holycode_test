@@ -29,7 +29,7 @@ class UserDetailsActivityRepository
         }
     }
 
-    fun getUserLiveData(): LiveData<User> {
+    fun getUserLiveData(): LiveData<User?> {
         return mUserDao.getUserLiveData();
     }
 }

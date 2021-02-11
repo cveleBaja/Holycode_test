@@ -5,6 +5,7 @@
     <dimen name="page_padding_start">20dp</dimen>
     <dimen name="page_padding_end">20dp</dimen>
     <dimen name="margin_medium">16dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
 
     //user details
     <dimen name="text_size_16">16sp</dimen>

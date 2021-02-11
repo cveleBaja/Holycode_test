@@ -14,5 +14,5 @@ interface UserDao {
     suspend fun insertUser(user: User)
 
     @Query("SELECT * FROM user")
-    fun getUserLiveData(): LiveData<User>
+    fun getUserLiveData(): LiveData<User?>
 }

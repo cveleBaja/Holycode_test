@@ -53,5 +53,5 @@ class UserDetailsActivityViewModel
         }
     }
 
-    fun getUserLiveData(): LiveData<User> = mRepository.getUserLiveData()
+    fun getUserLiveData(): LiveData<User?> = mRepository.getUserLiveData()
 }

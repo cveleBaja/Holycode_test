@@ -28,8 +28,6 @@ class UserDetailsActivity : BaseActivity() {
         configureSwipeToRefresh()
 
         mViewModel.userDetails.observe(this) { event ->
-            mBinding.swipeRefresh.isRefreshing = false
-
             when (event) {
                 is UserDetailsActivityViewModel.UserEvent.Loading -> {
                     mBinding.swipeRefresh.isRefreshing = true
@@ -45,8 +43,10 @@ class UserDetailsActivity : BaseActivity() {
             }
         }
 
-        mViewModel.getUserLiveData().observe(this) {
-            refreshUi(it)
+        mViewModel.getUserLiveData().observe(this) { user ->
+            user?.let {
+                refreshUi(it)
+            }
         }
     }
 

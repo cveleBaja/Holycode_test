@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.screen.user_repos.UserReposActivity"/>
+        <activity android:name=".ui.screen.commits_by_repo.CommitsByRepoActivity"/>
     </application>
 
 </manifest>

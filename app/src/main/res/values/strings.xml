@@ -7,4 +7,8 @@
     //user details
     <string name="btn_repos_text">Repos</string>
 
+    //user repos
+    <string name="open_issues_label">Open Issues:</string>
+    <string name="user_repositories_format">%1$s Repositories:</string>
+
 </resources>

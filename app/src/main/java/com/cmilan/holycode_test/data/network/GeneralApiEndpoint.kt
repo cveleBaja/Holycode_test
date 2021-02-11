@@ -14,8 +14,8 @@ interface GeneralApiEndpoint {
     suspend fun fetchUser(): Response<User?>
 
     @GET("users/octocat/repos")
-    suspend fun fetchUserRepos(): Response<List<UserRepo?>>
+    suspend fun fetchUserRepos(): Response<List<UserRepo>?>
 
-    @GET("repos/octocat/{repo_name}boysenberry-repo-1/commits")
-    suspend fun fetchCommitsByRepo(@Path("repo_name") repo_name: String): Response<List<Commit?>>
+    @GET("repos/octocat/{repo_name}/commits")
+    suspend fun fetchCommitsByRepo(@Path("repo_name") repo_name: String): Response<List<Commit>?>
 }
