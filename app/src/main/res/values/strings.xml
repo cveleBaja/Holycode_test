@@ -3,13 +3,29 @@
     //universal
     <string name="error_text_general">Unknown error occurred, please try again.</string>
     <string name="text_internet_off">There is no internet connection</string>
+    <string name="no_value_label">- -</string>
 
     //user details
     <string name="btn_repos_text">Repos >></string>
+    <string name="type_label">Type:</string>
+    <string name="location_label">Location:</string>
+    <string name="public_repos_count_label">Public repos:</string>
+    <string name="followers_count_label">Followers:</string>
+    <string name="following_count_label">Following:</string>
 
     //user repos
     <string name="open_issues_label">Open Issues:</string>
     <string name="user_repositories_label">Repositories:</string>
+    <string name="is_private_label">Private:</string>
+    <string name="has_projects_label">Has projects:</string>
+    <string name="has_issues_label">Has issues:</string>
+    <string name="has_downloads_label">Has downloads:</string>
+    <string name="has_wiki_label">Has wiki:</string>
+    <string name="watchers_count_label">Watchers:</string>
+    <string name="default_branch_label">Default branch:</string>
+    <string name="language_label">Language:</string>
+    <string name="yes_label">Yes</string>
+    <string name="no_label">No</string>
 
     //commits by repo
     <string name="commit_label_format">Commit #%1$d</string>

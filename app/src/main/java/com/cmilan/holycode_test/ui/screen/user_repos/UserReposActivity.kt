@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.cmilan.holycode_test.R
 import com.cmilan.holycode_test.data.model.UserRepo
 import com.cmilan.holycode_test.databinding.ActivityUserReposBinding
 import com.cmilan.holycode_test.ui.adapter.UserRepositoryAdapter
@@ -29,7 +30,7 @@ class UserReposActivity : BaseActivity(), UserRepositoryViewHolder.UserRepositor
         configureSwipeRefresh()
         setUpActionBar()
 
-        mViewModel.userRepos.observe(this) { event ->
+        mViewModel.userReposEvent.observe(this) { event ->
             when(event) {
                 is UserReposActivityViewModel.UserReposEvent.Loading -> {
                     mBinding.swipeRefresh.isRefreshing = true
@@ -40,12 +41,14 @@ class UserReposActivity : BaseActivity(), UserRepositoryViewHolder.UserRepositor
                 }
                 is UserReposActivityViewModel.UserReposEvent.Success -> {
                     mBinding.swipeRefresh.isRefreshing = false
-
-                    event.response?.let {
-                        mUserReposAdapter.updateItems(it)
-                    }
                 }
                 else -> Unit
+            }
+        }
+
+        mViewModel.getOwnerWithReps().observe(this) {
+            it?.let {
+                mUserReposAdapter.updateItems(it.repos)
             }
         }
     }
@@ -70,7 +73,7 @@ class UserReposActivity : BaseActivity(), UserRepositoryViewHolder.UserRepositor
     }
 
     override fun onRepositoryClicked(position: Int) {
-        mViewModel.setRepoName(mRepos[position].name ?: "")
+        mViewModel.setRepoName(mRepos[position].name ?: getString(R.string.no_value_label))
 
         val intent = Intent(this, CommitsByRepoActivity::class.java)
         startActivity(intent)

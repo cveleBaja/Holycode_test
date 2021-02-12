@@ -30,4 +30,7 @@ object DatabaseModule {
     @Provides
     fun providesUserDao(db: HolycodeTestDatabase) = db.getUserDao()
 
+    @Provides
+    fun proidesReposDao(db: HolycodeTestDatabase) = db.getReposDao()
+
 }

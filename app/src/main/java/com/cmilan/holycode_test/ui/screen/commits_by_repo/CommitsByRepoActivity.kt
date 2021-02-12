@@ -26,7 +26,7 @@ class CommitsByRepoActivity : BaseActivity() {
         configureSwipeRefresh()
         setUpActionBar()
 
-        mViewModel.commits.observe(this) { event ->
+        mViewModel.commitsEvent.observe(this) { event ->
             when(event) {
                 is CommitsByRepoActivityViewModel.CommitsEvent.Loading -> {
                     mBinding.swipeRefresh.isRefreshing = true

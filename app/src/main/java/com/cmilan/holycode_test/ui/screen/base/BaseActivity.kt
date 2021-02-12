@@ -29,25 +29,7 @@ open class BaseActivity : AppCompatActivity() {
             mSnackBar?.view?.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
         tv?.setTextColor(ContextCompat.getColor(view.context, R.color.white))
 
-        mSnackBar!!.show()
-    }
-
-    protected fun showCustomGreenSnackBar(msg: String) {
-        mSnackBar?.dismiss()
-
-        val view: View = findViewById(R.id.main_container)
-        mSnackBar = Snackbar.make(view, msg, Snackbar.LENGTH_LONG)
-        mSnackBar?.view?.setBackgroundColor(
-            ContextCompat.getColor(
-                view.context,
-                R.color.colorRed
-            )
-        )
-        val tv =
-            mSnackBar?.view?.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
-        tv?.setTextColor(ContextCompat.getColor(view.context, R.color.white))
-
-        mSnackBar!!.show()
+        mSnackBar?.show()
     }
 
     fun showGeneralError(exception: Throwable) {

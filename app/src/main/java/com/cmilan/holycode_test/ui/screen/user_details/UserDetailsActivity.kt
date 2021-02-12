@@ -11,7 +11,6 @@ import com.cmilan.holycode_test.databinding.ActivityUserDetailsBinding
 import com.cmilan.holycode_test.ui.screen.base.BaseActivity
 import com.cmilan.holycode_test.ui.screen.user_repos.UserReposActivity
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.ArrayList
 
 @AndroidEntryPoint
 class UserDetailsActivity : BaseActivity() {
@@ -27,7 +26,7 @@ class UserDetailsActivity : BaseActivity() {
         setOnClickListeners()
         configureSwipeToRefresh()
 
-        mViewModel.userDetails.observe(this) { event ->
+        mViewModel.userDetailsEvent.observe(this) { event ->
             when (event) {
                 is UserDetailsActivityViewModel.UserEvent.Loading -> {
                     mBinding.swipeRefresh.isRefreshing = true
@@ -43,8 +42,8 @@ class UserDetailsActivity : BaseActivity() {
             }
         }
 
-        mViewModel.getUserLiveData().observe(this) { user ->
-            user?.let {
+        mViewModel.getUserLiveData().observe(this) {
+            it?.let {
                 refreshUi(it)
             }
         }
@@ -66,6 +65,12 @@ class UserDetailsActivity : BaseActivity() {
         user?.let {
             mBinding.tvName.text = it.name
             mBinding.tvCompany.text = it.company
+            mBinding.tvType.text = it.type ?: getString(R.string.no_value_label)
+            mBinding.tvEmail.text = it.email ?: getString(R.string.no_value_label)
+            mBinding.tvLocation.text = it.location ?: getString(R.string.no_value_label)
+            mBinding.tvReposCount.text = it.public_repos?.toString() ?: getString(R.string.no_value_label)
+            mBinding.tvFollowers.text = it.followers?.toString() ?: getString(R.string.no_value_label)
+            mBinding.tvFollowing.text = it.following?.toString() ?: getString(R.string.no_value_label)
 
             Glide
                 .with(this)

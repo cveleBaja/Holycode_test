@@ -13,15 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Holycode_test">
-        <activity android:name=".ui.screen.user_details.UserDetailsActivity">
+        <activity
+            android:name=".ui.screen.user_details.UserDetailsActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.screen.user_repos.UserReposActivity"/>
-        <activity android:name=".ui.screen.commits_by_repo.CommitsByRepoActivity"/>
+        <activity
+            android:name=".ui.screen.user_repos.UserReposActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.screen.commits_by_repo.CommitsByRepoActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

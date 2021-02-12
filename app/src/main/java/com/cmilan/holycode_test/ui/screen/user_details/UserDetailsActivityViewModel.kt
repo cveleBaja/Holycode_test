@@ -1,6 +1,5 @@
 package com.cmilan.holycode_test.ui.screen.user_details
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,26 +26,26 @@ class UserDetailsActivityViewModel
         object Empty : UserEvent()
     }
 
-    private val _userDetails = MutableLiveData<UserEvent>(UserEvent.Empty)
-    val userDetails: LiveData<UserEvent> = _userDetails
+    private val _userDetailsEvent = MutableLiveData<UserEvent>(UserEvent.Empty)
+    val userDetailsEvent: LiveData<UserEvent> = _userDetailsEvent
 
     init {
         fetchUserDetails()
     }
 
     fun fetchUserDetails() {
-        _userDetails.value = UserEvent.Loading
+        _userDetailsEvent.value = UserEvent.Loading
 
         viewModelScope.launch(dispatchers.io) {
             when (val userDetailsResponse = mRepository.fetchUserDetails()) {
                 is Resource.Success -> {
                     withContext(dispatchers.main) {
-                        _userDetails.value = UserEvent.Success(userDetailsResponse.data)
+                        _userDetailsEvent.value = UserEvent.Success(userDetailsResponse.data)
                     }
                 }
                 is Resource.Error -> {
                     withContext(dispatchers.main) {
-                        _userDetails.value = UserEvent.Error(userDetailsResponse.e!!)
+                        _userDetailsEvent.value = UserEvent.Error(userDetailsResponse.e!!)
                     }
                 }
             }

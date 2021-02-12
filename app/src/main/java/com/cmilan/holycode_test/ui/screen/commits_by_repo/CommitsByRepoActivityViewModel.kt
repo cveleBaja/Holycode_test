@@ -1,6 +1,5 @@
 package com.cmilan.holycode_test.ui.screen.commits_by_repo
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -22,10 +21,6 @@ class CommitsByRepoActivityViewModel
     private val mPrefUtils: PrefUtils
 ) : ViewModel() {
 
-    companion object {
-        private const val TAG = "CommitsByRepoActivityVi"
-    }
-
     sealed class CommitsEvent {
         class Success(val response: List<Commit>?) : CommitsEvent()
         class Error(val error: Exception) : CommitsEvent()
@@ -33,27 +28,26 @@ class CommitsByRepoActivityViewModel
         object Empty : CommitsEvent()
     }
 
-    private val _commits = MutableLiveData<CommitsEvent>(CommitsEvent.Empty)
-    val commits: LiveData<CommitsEvent> = _commits
+    private val _commitsEvent = MutableLiveData<CommitsEvent>(CommitsEvent.Empty)
+    val commitsEvent: LiveData<CommitsEvent> = _commitsEvent
 
     init {
-        Log.i(TAG, ": ${mPrefUtils.repoName!!}")
         fetchCommitsByRepo()
     }
 
     fun fetchCommitsByRepo() {
-        _commits.value = CommitsEvent.Loading
+        _commitsEvent.value = CommitsEvent.Loading
 
         viewModelScope.launch(dispatchers.io) {
             when (val userDetailsResponse = mRepository.fetchCommitsByRepo(mPrefUtils.repoName ?: "")) {
                 is Resource.Success -> {
                     withContext(dispatchers.main) {
-                        _commits.value = CommitsEvent.Success(userDetailsResponse.data)
+                        _commitsEvent.value = CommitsEvent.Success(userDetailsResponse.data)
                     }
                 }
                 is Resource.Error -> {
                     withContext(dispatchers.main) {
-                        _commits.value = CommitsEvent.Error(userDetailsResponse.e!!)
+                        _commitsEvent.value = CommitsEvent.Error(userDetailsResponse.e!!)
                     }
                 }
             }
