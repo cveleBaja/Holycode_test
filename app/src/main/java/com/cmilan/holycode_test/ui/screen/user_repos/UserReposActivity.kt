@@ -27,6 +27,7 @@ class UserReposActivity : BaseActivity(), UserRepositoryViewHolder.UserRepositor
 
         initialiseRecyclerView()
         configureSwipeRefresh()
+        setUpActionBar()
 
         mViewModel.userRepos.observe(this) { event ->
             when(event) {
@@ -49,6 +50,11 @@ class UserReposActivity : BaseActivity(), UserRepositoryViewHolder.UserRepositor
         }
     }
 
+    private fun setUpActionBar() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
     private fun configureSwipeRefresh() {
         mBinding.swipeRefresh.setOnRefreshListener { mViewModel.fetchUserRepos() }
     }
@@ -68,5 +74,10 @@ class UserReposActivity : BaseActivity(), UserRepositoryViewHolder.UserRepositor
 
         val intent = Intent(this, CommitsByRepoActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

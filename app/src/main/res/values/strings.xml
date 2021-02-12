@@ -5,10 +5,23 @@
     <string name="text_internet_off">There is no internet connection</string>
 
     //user details
-    <string name="btn_repos_text">Repos</string>
+    <string name="btn_repos_text">Repos >></string>
 
     //user repos
     <string name="open_issues_label">Open Issues:</string>
     <string name="user_repositories_format">%1$s Repositories:</string>
+
+    //commits by repo
+    <string name="commit_label_format">Commit #%1$d</string>
+    <string name="author_label"><u>Author</u></string>
+    <string name="name_label">Name:</string>
+    <string name="email_label">Email:</string>
+    <string name="date_label">Date</string>
+    <string name="committer_label"><u>Committer</u></string>
+    <string name="message_label"><u>Message</u></string>
+    <string name="comment_count_label">Comment count:</string>
+    <string name="verified_label">Verified:</string>
+    <string name="reason_label">Reason:</string>
+    <string name="url_label"><u>Url</u></string>
 
 </resources>

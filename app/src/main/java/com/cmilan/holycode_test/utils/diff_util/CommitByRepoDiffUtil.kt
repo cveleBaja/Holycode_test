@@ -1,11 +1,11 @@
 package com.cmilan.holycode_test.utils.diff_util
 
 import androidx.recyclerview.widget.DiffUtil
-import com.cmilan.holycode_test.data.model.UserRepo
+import com.cmilan.holycode_test.data.model.Commit
 
-class UserRepositoryDiffUtil(
-    private val oldList: List<UserRepo>,
-    private val newList: List<UserRepo>
+class CommitByRepoDiffUtil(
+    private val oldList: List<Commit>,
+    private val newList: List<Commit>
 ) : DiffUtil.Callback() {
 
     override fun getOldListSize(): Int = oldList.size
@@ -16,7 +16,7 @@ class UserRepositoryDiffUtil(
         val oldItem = oldList[oldItemPosition]
         val newItem = newList[newItemPosition]
 
-        return oldItem.id == newItem.id
+        return oldItem.node_id == newItem.node_id
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {

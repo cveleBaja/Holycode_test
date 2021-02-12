@@ -36,15 +36,13 @@
 
         <TextView
             android:id="@+id/tv_open_issues_no"
-            android:layout_width="32dp"
+            android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginStart="4dp"
             android:ellipsize="end"
-            android:maxEms="3"
-            android:maxLines="1"
             android:textAlignment="center"
             android:textColor="@color/colorRed"
-            tools:text="15" />
+            tools:text="15343" />
 
     </LinearLayout>
 
