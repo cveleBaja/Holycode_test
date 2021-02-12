@@ -9,7 +9,7 @@
 
     //user repos
     <string name="open_issues_label">Open Issues:</string>
-    <string name="user_repositories_format">%1$s Repositories:</string>
+    <string name="user_repositories_label">Repositories:</string>
 
     //commits by repo
     <string name="commit_label_format">Commit #%1$d</string>
