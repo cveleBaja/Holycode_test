@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cmilan.holycode_test.R
 import com.cmilan.holycode_test.data.model.Commit
 import com.cmilan.holycode_test.databinding.RvItemCommitByRepoBinding
+import com.cmilan.holycode_test.utils.DateTimeUtils
 
 class CommitByRepoViewHolder(
     private val mBinding: RvItemCommitByRepoBinding
@@ -19,11 +20,11 @@ class CommitByRepoViewHolder(
 
         mBinding.tvAuthorNameValue.text = item.commit?.author?.name
         mBinding.tvAuthorEmailValue.text = item.commit?.author?.email
-        mBinding.tvAuthorDateValue.text = item.commit?.author?.date
+        mBinding.tvAuthorDateValue.text = DateTimeUtils.formatCommitTime(item.commit?.author?.date)
 
         mBinding.tvCommitterNameValue.text = item.commit?.committer?.name
         mBinding.tvCommitterEmailValue.text = item.commit?.committer?.email
-        mBinding.tvCommitterDateValue.text = item.commit?.committer?.date
+        mBinding.tvCommitterDateValue.text = DateTimeUtils.formatCommitTime(item.commit?.committer?.date)
 
         mBinding.tvMessageValue.text = item.commit?.message
 
